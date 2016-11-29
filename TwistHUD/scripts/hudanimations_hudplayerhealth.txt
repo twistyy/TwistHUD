@@ -1,0 +1,65 @@
+//===========================================
+
+//Health Bonus Pulse
+event HudHealthBonusPulse
+{
+	Animate	PlayerStatusHealthBonusImage 	Alpha		"100"		Linear 0.0 0.2
+	Animate	PlayerStatusHealthBonusImage 	Alpha		"0"			Linear 0.2 0.4
+
+	Animate PlayerStatusHealthValueTargetID FgColor "HealthBuff" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueFreezePanel FgColor "HealthBuff" Linear 0.0 0.0	
+	
+	Animate	PlayerStatusHealthValue			fgcolor		"HealthBuff" 		Linear 0.0 0.0
+
+	RunEvent HudHealthBonusPulseLoop	0.6
+}
+
+// call to loop HudHealthBonusPulse
+event HudHealthBonusPulseLoop
+{
+	RunEvent HudHealthBonusPulse 0.0
+}
+
+event HudHealthBonusPulseStop
+{
+	StopEvent HudHealthBonusPulse 0.0
+	StopEvent HudHealthBonusPulseLoop 0.0
+	
+	Animate	PlayerStatusHealthValue		fgcolor		"HealthNormal" 	Linear 0.0 0.0
+	Animate PlayerStatusHealthValueTargetID FgColor "HealthNormal" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueFreezePanel FgColor "HealthNormal" Linear 0.0 0.0			
+}
+
+//===========================================
+
+//Health Dying Pulse
+event HudHealthDyingPulse
+{
+	Animate	PlayerStatusHealthBonusImage 	Alpha		"100"		Linear 0.0 0.075
+	Animate	PlayerStatusHealthBonusImage 	Alpha		"0"			Linear 0.125 0.075
+
+	Animate PlayerStatusHealthValueTargetID FgColor "HealthHurt" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueFreezePanel FgColor "HealthHurt" Linear 0.0 0.0		
+	
+	Animate	PlayerStatusHealthValue			fgcolor		"HealthHurt" 		Linear 0.0 0.0
+	
+	RunEvent HudHealthDyingPulseLoop	0.15
+}
+
+// call to loop HudHealthDyingPulse
+event HudHealthDyingPulseLoop
+{
+	RunEvent HudHealthDyingPulse 0.0
+}
+
+event HudHealthDyingPulseStop
+{
+	Animate	PlayerStatusHealthValue		fgcolor		"HealthNormal" 	Linear 0.0 0.0
+	Animate PlayerStatusHealthValueSpectator FgColor "HealthNormal" Accel 0.0 0.0
+	Animate PlayerStatusHealthValueFreezePanel FgColor "HealthNormal" Accel 0.0 0.0		
+	StopEvent HudHealthDyingPulse 0.0
+	StopEvent HudHealthDyingPulseLoop 0.0
+	
+}
+
+//===========================================

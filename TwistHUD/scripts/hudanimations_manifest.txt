@@ -1,0 +1,9 @@
+hudanimations_manifest
+{
+
+	"file"		"scripts/hudanimations.txt"
+	"file"		"scripts/hudanimations_hudammoweapons.txt"
+	"file"		"scripts/hudanimations_hudmediccharge.txt"
+	"file"		"scripts/hudanimations_hudplayerhealth.txt"
+	"file"		"scripts/hudanimations_tf.txt"
+}
